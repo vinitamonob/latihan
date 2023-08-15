@@ -240,8 +240,10 @@
               <?php
 	          include 'koneksi.php';
 	          $id = $_GET['nim'];
-	          $data = mysqli_query($conn,"select * from mahasiswa where nim='$id'");
-	          while($d = mysqli_fetch_array($data)){
+
+	          // $data = mysqli_query($conn,"select * from mahasiswa where nim='$id'");
+            $data = $conn->query("SELECT * FROM mahasiswa WHERE nim='$id'");
+	          while($d = $data->fetch_assoc()){
 	          ?>
 
               <!-- Table with stripped rows -->
@@ -269,7 +271,7 @@
 
                 <div class="form-group">
                   <label>Alamat</label>
-                  <textarea class="form-control" name="alamat" placeholder=" " rows="4" value="<?php echo $d['alamat']; ?>" required></textarea>
+                  <textarea class="form-control" name="alamat" placeholder=" " rows="4" value="" required><?php echo $d['alamat']; ?></textarea>
                 </div>
             
                 <div class="form-group">
