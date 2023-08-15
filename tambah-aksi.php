@@ -11,7 +11,8 @@ $alamat = $_POST['alamat'];
 $telepon = $_POST['telepon'];
  
 // menginput data ke database
-mysqli_query($conn,"insert into mahasiswa (nim, nama, prodi, kelas, alamat, telepon) values('$nim','$nama','$prodi','$kelas','$alamat','$telepon')");
+$conn->query("INSERT INTO mahasiswa (nim, nama, prodi, kelas, alamat, telepon) VALUES ('$nim','$nama','$prodi','$kelas','$alamat','$telepon')");
+// mysqli_query($conn,"insert into mahasiswa (nim, nama, prodi, kelas, alamat, telepon) values('$nim','$nama','$prodi','$kelas','$alamat','$telepon')");
  
 // mengalihkan halaman kembali ke index.php
 header("location:tables-general.php");

@@ -4,6 +4,7 @@ $host = 'localhost';
 $username = 'root';
 $password = '';
 $db = 'tabel_data';
+// $db = 'kbd';
 
 $conn = mysqli_connect($host, $username, $password, $db);
 
