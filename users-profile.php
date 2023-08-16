@@ -249,7 +249,7 @@
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
 
                   <h5 class="card-title">Pencarian Data</h5>
-                  <form class="search-form d-flex align-items-center" method="POST" action="#">
+                  <form class="search-form d-flex align-items-center" method="get" action="users-profile.php">
                     <input type="text" name="query" placeholder="Search" title="Enter search keyword">
                     <button type="submit" title="Search" class="btn btn-primary btn-sm">Cari</button>
                   </form>
@@ -257,40 +257,56 @@
                   <br>
                   <h5 class="card-title">Detail Profil</h5>
 
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                    <div class="col-lg-9 col-md-8">Kevin Anderson</div>
-                  </div>
+                  <?php 
+                  include 'koneksi.php';
 
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Company</div>
-                    <div class="col-lg-9 col-md-8">Lueilwitz, Wisoky and Leuschke</div>
-                  </div>
+                  $query = $_GET['query'];
+                  if ($query != '') {
+                    $select = mysqli_query($conn, "SELECT * FROM mahasiswa WHERE nim LIKE '%".$query."%' OR nama LIKE '%".$query."%'");
+                    
+                    $check = $select->num_rows;
+                    if($check){
+                      while($data = $select->fetch_assoc()){
+                        ?>
+                        <div class="row">
+                          <div class="col-lg-3 col-md-4 label ">NIM</div>
+                          <div class="col-lg-9 col-md-8"><?= $data['nim'] ?></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-3 col-md-4 label ">Nama</div>
+                          <div class="col-lg-9 col-md-8"><?= $data['nama'] ?></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-3 col-md-4 label ">Prodi</div>
+                          <div class="col-lg-9 col-md-8"><?= $data['prodi'] ?></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-3 col-md-4 label ">Kelas</div>
+                          <div class="col-lg-9 col-md-8"><?= $data['kelas'] ?></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-3 col-md-4 label ">Alamat</div>
+                          <div class="col-lg-9 col-md-8"><?= $data['alamat'] ?></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-3 col-md-4 label ">Telepon</div>
+                          <div class="col-lg-9 col-md-8"><?= $data['telepon'] ?></div>
+                        </div>
 
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Job</div>
-                    <div class="col-lg-9 col-md-8">Web Designer</div>
-                  </div>
+                        <div class="row">
+                          <form action="cetak.php" method="post">
+                            <input type="hidden" name="nim" value="<?= $data['nim'] ?>">
+                            <button type="submit" class="btn btn-primary">Cetak</button>
+                          </form>
+                        </div>
+                        <?php
+                      }
+                    }else{
+                      echo 'tidak ada';
+                    }
+                  }
 
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Country</div>
-                    <div class="col-lg-9 col-md-8">USA</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Address</div>
-                    <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
-                  </div>
+                  ?>
 
                 </div>
 
