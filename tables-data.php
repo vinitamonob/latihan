@@ -182,14 +182,14 @@
       <li class="nav-heading">Cetak Data</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="users-profile.php">
           <i class="bi bi-person"></i>
           <span>Mahasiswa</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="users-profile.php">
           <i class="bi bi-person"></i>
           <span>Dosen</span>
         </a>
@@ -233,8 +233,11 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Dosen</h5>
-              <a href="#" class="btn btn-success" >
-                  <i class="bi-person"></i> <span>Tambah Dosen</span></a>		
+              <div class="col-sm-6">
+                <a href="tambah2.php" class="btn btn-success" >
+                    <i class="bi-person"></i> <span>Tambah Dosen</span></a>		
+              </div>
+              <br>
 
               <!-- Table with stripped rows -->
               <table class="table datatable">
@@ -264,8 +267,8 @@
                       <td class=" "><?php echo $d['alamat']; ?></td>
                       <td class=" "><?php echo $d['telepon']; ?></td>
                       <td class="d-flex flex-row">
-                        <a class="btn btn-sm btn-primary" href="edit.php?nim=<?php echo $d['nip']; ?>">Edit</a>
-                        <a class="btn btn-sm btn-danger" href="hapus.php?nim=<?php echo $d['nip']; ?>">Hapus</a>
+                        <a class="btn btn-sm btn-primary" href="edit2.php?nip=<?php echo $d['nip']; ?>">Edit</a>
+                        <a class="btn btn-sm btn-danger" href="hapus2.php?nip=<?php echo $d['nip']; ?>">Hapus</a>
                       </td>
                     </tr>
                     <?php

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Tables / General - NiceAdmin Bootstrap Template</title>
+  <title>Users / Profile - NiceAdmin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -44,7 +44,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="index.php" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">NiceAdmin</span>
       </a>
@@ -81,6 +81,13 @@
             </li>
             <li>
               <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li class="dropdown-footer">
+              <a href="#">Show all notifications</a>
             </li>
 
           </ul><!-- End Notification Dropdown Items -->
@@ -165,12 +172,12 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link " data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Tabel Data</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.php" class="active">
+            <a href="tables-general.php">
               <i class="bi bi-circle"></i><span>Mahasiswa</span>
             </a>
           </li>
@@ -185,18 +192,18 @@
       <li class="nav-heading">Cetak Data</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.php">
+        <a class="nav-link " href="users-profile.php">
           <i class="bi bi-person"></i>
           <span>Mahasiswa</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.php">
+        <a class="nav-link collapsed" href="pages-faq.php">
           <i class="bi bi-person"></i>
           <span>Dosen</span>
         </a>
-      </li><!-- End Profile Page Nav -->
+      </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-register.html">
@@ -219,58 +226,75 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Data Dosen</h1>
+      <h1>Cetak Data</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item">Tabel Data</li>
-          <li class="breadcrumb-item active">Dosen</li>
+          <li class="breadcrumb-item">Cari Data</li>
+          <li class="breadcrumb-item active">Mahasiswa</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section">
+    <section class="section profile">
       <div class="row">
-        <div class="col-lg-12">
+
+        <div class="col-xl-8">
 
           <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Tambah Dosen</h5>
+            <div class="card-body pt-3">
 
-              <!-- Table with stripped rows -->
-              <form method="post" action="tambah-aksi2.php">
-		        <table>
-                <div class="form-group">
-                  <label>NIP</label>
-                  <input type="text" name="nip" placeholder=" " class="form-control" required>
+              <div class="tab-content pt-2">
+
+                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+
+                  <h5 class="card-title">Pencarian Data</h5>
+                  <form class="search-form d-flex align-items-center" method="POST" action="#">
+                    <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+                    <button type="submit" title="Search" class="btn btn-primary btn-sm">Cari</button>
+                  </form>
+              
+                  <br>
+                  <h5 class="card-title">Detail Profil</h5>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
+                    <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Company</div>
+                    <div class="col-lg-9 col-md-8">Lueilwitz, Wisoky and Leuschke</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Job</div>
+                    <div class="col-lg-9 col-md-8">Web Designer</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Country</div>
+                    <div class="col-lg-9 col-md-8">USA</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Address</div>
+                    <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Phone</div>
+                    <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Email</div>
+                    <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                  </div>
+
                 </div>
 
-                <div class="form-group">
-                  <label>Nama</label>
-                  <input type="text" name="nama" placeholder=" " class="form-control" required>
-                </div>
-
-                <div class="form-group">
-                  <label>Dosen Matakuliah</label>
-                  <input type="text" name="matkul" placeholder=" " class="form-control" required>
-                </div>
-
-                <div class="form-group">
-                  <label>Alamat</label>
-                  <textarea class="form-control" name="alamat" placeholder=" " rows="4" required></textarea>
-                </div>
-            
-                <div class="form-group">
-                  <label>No Telepon</label>
-                  <input type="number" name="telepon" placeholder=" " class="form-control" required>
-                </div>
-
-                <br>
-                <button type="reset" class="btn btn-light">Batal</button>
-                <button type="submit" class="btn btn-primary">Simpan</button>	
-		        </table>
-	          </form>
-              <!-- End Table with stripped rows -->
+              </div><!-- End Bordered Tabs -->
 
             </div>
           </div>

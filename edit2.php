@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Users / Profile - NiceAdmin Bootstrap Template</title>
+  <title>Tables / General - NiceAdmin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -83,13 +83,6 @@
               <hr class="dropdown-divider">
             </li>
 
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="dropdown-footer">
-              <a href="#">Show all notifications</a>
-            </li>
-
           </ul><!-- End Notification Dropdown Items -->
 
         </li><!-- End Notification Nav -->
@@ -165,24 +158,24 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed" href="index.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link " data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Tabel Data</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html">
+            <a href="tables-general.php" class="active">
               <i class="bi bi-circle"></i><span>Mahasiswa</span>
             </a>
           </li>
           <li>
-            <a href="tables-data.html">
+            <a href="tables-data.php">
               <i class="bi bi-circle"></i><span>Dosen</span>
             </a>
           </li>
@@ -192,18 +185,18 @@
       <li class="nav-heading">Cetak Data</li>
 
       <li class="nav-item">
-        <a class="nav-link " href="users-profile.html">
+        <a class="nav-link collapsed" href="users-profile.html">
           <i class="bi bi-person"></i>
           <span>Mahasiswa</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
+        <a class="nav-link collapsed" href="users-profile.html">
           <i class="bi bi-person"></i>
           <span>Dosen</span>
         </a>
-      </li><!-- End F.A.Q Page Nav -->
+      </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-register.html">
@@ -226,70 +219,71 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Cetak Data</h1>
+      <h1>Data Dosen</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Cari Data</li>
-          <li class="breadcrumb-item active">Mahasiswa</li>
+          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+          <li class="breadcrumb-item">Tabel Data</li>
+          <li class="breadcrumb-item active">Dosen</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section profile">
+    <section class="section">
       <div class="row">
-
-        <div class="col-xl-8">
+        <div class="col-lg-12">
 
           <div class="card">
-            <div class="card-body pt-3">
+            <div class="card-body">
+              <h5 class="card-title">Edit Dosen</h5>
 
-              <div class="tab-content pt-2">
+              <?php
+	          include 'koneksi2.php';
+	          $id = $_GET['nip'];
 
-                <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <h5 class="card-title">About</h5>
-                  <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</p>
+	          // $data = mysqli_query($conn,"select * from mahasiswa where nim='$id'");
+              $data = $conn->query("SELECT * FROM dosen WHERE nip='$id'");
+	          while($d = $data->fetch_assoc()){
+	          ?>
 
-                  <h5 class="card-title">Profile Details</h5>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                    <div class="col-lg-9 col-md-8">Kevin Anderson</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Company</div>
-                    <div class="col-lg-9 col-md-8">Lueilwitz, Wisoky and Leuschke</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Job</div>
-                    <div class="col-lg-9 col-md-8">Web Designer</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Country</div>
-                    <div class="col-lg-9 col-md-8">USA</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Address</div>
-                    <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
-                  </div>
-
+              <!-- Table with stripped rows -->
+              <form method="post" action="update2.php">
+		        <table>
+                <div class="form-group">
+                  <label>NIP</label>
+                  <input type="text" name="nip" placeholder=" " class="form-control" value="<?php echo $d['nip']; ?>" required>
                 </div>
 
-              </div><!-- End Bordered Tabs -->
+                <div class="form-group">
+                  <label>Nama</label>
+                  <input type="text" name="nama" placeholder=" " class="form-control" value="<?php echo $d['nama']; ?>" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Dosen Matakuliah</label>
+                  <input type="text" name="matkul" placeholder=" " class="form-control" value="<?php echo $d['matkul']; ?>" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Alamat</label>
+                  <textarea class="form-control" name="alamat" placeholder=" " rows="4" value="" required><?php echo $d['alamat']; ?></textarea>
+                </div>
+            
+                <div class="form-group">
+                  <label>No Telepon</label>
+                  <input type="number" name="telepon" placeholder=" " class="form-control" value="<?php echo $d['telepon']; ?>" required>
+                </div>
+
+                <br>
+                <button type="reset" class="btn btn-light">Batal</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>	
+		        </table>
+	          </form>
+
+              <?php 
+	          }
+	          ?>
+              <!-- End Table with stripped rows -->
 
             </div>
           </div>
